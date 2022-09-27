@@ -8,7 +8,7 @@ public class Task01 {
         System.out.print(msg);
         return in.nextInt();
     }
-    private static String printArray(int[] arr){
+    public static String printArray(int[] arr){
         String str = "[ ";
         for (int i = 0; i < arr.length; i++) {
             str += arr[i] + " ";
