@@ -22,7 +22,7 @@ public class Airplane {
         this.fuel += fuel;
     }
     public void info(){
-        System.out.printf("Изготовитель: %s , год выпуска: %d , длина: %d, вес: %d, количество топлива в баке: %d",
+        System.out.printf("Изготовитель: %s , год выпуска: %d , длина: %d, вес: %d, количество топлива в баке: %d \n",
                 this.producer, this.year, this.length, this.weight, this.fuel);
     }
 }

@@ -10,5 +10,9 @@ public class MainApp {
         airplane.fillUp(500);
         airplane.info();
 
+        Teacher teacher = new Teacher("Smirnova", "math");
+        Student student = new Student("Pantellev");
+        teacher.evaluate(student);
+
     }
 }
