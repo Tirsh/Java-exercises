@@ -10,17 +10,22 @@
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
 
     <bean id="classicMusic"
-          class="com.tirsh.ClassicMusic">
+            class="com.tirsh.ClassicMusic"
+            init-method="makeInit"
+            destroy-method="makeDestroy">
     </bean>
     <bean id="rockMusic"
-          class="com.tirsh.RockMusic">
+            class="com.tirsh.RockMusic">
     </bean>
     <bean id="rapMusic"
-          class="com.tirsh.RapMusic">
+            class="com.tirsh.RapMusic"
+            factory-method="getRapMusic">
     </bean>
 
     <bean id="musicPlayer"
-        class="com.tirsh.MusicPlayer">
+        class="com.tirsh.MusicPlayer"
+        scope="prototype">
+
         <property name="musicList">
             <list>
                 <ref bean="classicMusic"/>
