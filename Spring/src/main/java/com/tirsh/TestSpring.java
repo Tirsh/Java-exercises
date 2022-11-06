@@ -13,7 +13,7 @@ public class TestSpring {
 //        Music classicMusic = context.getBean("classicMusic", Music.class);
 //        System.out.println(classicMusic.getSong());
         MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
-        System.out.println(musicPlayer.simplePlay());
+        musicPlayer.playMusic(MusicGenres.RAP);
 
         context.close();
     }

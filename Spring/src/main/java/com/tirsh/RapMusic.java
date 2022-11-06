@@ -2,14 +2,19 @@ package com.tirsh;
 
 import org.springframework.stereotype.Component;
 
-//@Component
+import java.util.ArrayList;
+import java.util.List;
+
+@Component
 public class RapMusic implements Music{
-    private RapMusic(){}
-    public static RapMusic getRapMusic(){
-        return new RapMusic();
+    private List<String> musicList = new ArrayList<>();
+   {
+        this.musicList.add("Drop it, like it's hot");
+        this.musicList.add("Still D.R.E.");
+        this.musicList.add("Molodie vetra");
     }
     @Override
-    public String getSong() {
-        return "Drop it, like it's hot";
+    public List<String> getSong() {
+        return musicList;
     }
 }

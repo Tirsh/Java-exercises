@@ -1,49 +1,36 @@
 package com.tirsh;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @Component
 public class MusicPlayer {
-    private List<Music> musicList = new ArrayList<>();
-    private Music music;
-    private String name;
-
-
-    public MusicPlayer() {
-    }
+    private Music classicMusic;
+    private Music rapMusic;
 
     @Autowired
-    public MusicPlayer(Music music){
-        this.music = music;
+    public MusicPlayer(ClassicMusic classicMusic, RapMusic rapMusic) {
+        this.classicMusic = classicMusic;
+        this.rapMusic = rapMusic;
     }
 
-    public List<Music> getMusicList() {
-        return musicList;
-    }
+    public void playMusic(MusicGenres genre){
+        Random random = new Random();
+        String song = "";
+        if (genre == MusicGenres.CLASSIC){
+            song = this.classicMusic.getSong().get(random.nextInt(3));
 
-
-    public void setMusicList(List<Music> musicList) {
-        this.musicList = musicList;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void playMusic() {
-        for (Music music:musicList) {
-            System.out.println(music.getSong());
         }
+        if (genre == MusicGenres.RAP){
+            song = this.rapMusic.getSong().get(random.nextInt(3));
+
+        }
+        System.out.println("Playing " + song);
     }
-    public String simplePlay(){
-        return music.getSong();
-    }
+
 }
