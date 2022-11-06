@@ -1,5 +1,8 @@
 package com.tirsh;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class ClassicMusic implements Music{
     private void makeInit(){
         System.out.println("Make initialize");
