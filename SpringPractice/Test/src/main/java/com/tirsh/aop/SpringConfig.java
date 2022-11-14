@@ -4,15 +4,15 @@ import org.springframework.context.annotation.*;
 
 
 @Configuration
-@ComponentScan("com.tirsh.aop.aspects")
+@ComponentScan("com.tirsh.aop ")
 @EnableAspectJAutoProxy
 public class SpringConfig {
     @Bean
-    public AbstractLibrary libraryBean(){
+    public UniLibrary libraryBean(){
         return new UniLibrary();
     }
 
     @Bean
-    public AbstractLibrary schoolBean(){ return new SchoolLibrary();}
+    public SchoolLibrary schoolBean(){ return new SchoolLibrary();}
 
 }
