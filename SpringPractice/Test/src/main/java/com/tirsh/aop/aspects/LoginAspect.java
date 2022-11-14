@@ -7,8 +7,12 @@ import org.springframework.stereotype.Component;
 @Component
 @Aspect
 public class LoginAspect {
-    @Before("execution(public void getBook())")
+    @Before("execution(public void com.tirsh.aop.UniLibrary.get*())")
     public void beforeGetBookAdvice(){
         System.out.println("beforeGetBookAdvice trying to take book");
+    }
+    @Before("execution(public void return*())")
+    public void beforeReturnBookAdvice(){
+        System.out.println("beforeReturnBookAdvice trying to return book");
     }
 }

@@ -1,10 +1,6 @@
 package com.tirsh.aop;
 
-import com.tirsh.aop.aspects.LoginAspect;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.context.annotation.*;
 
 
 @Configuration
@@ -12,8 +8,11 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @EnableAspectJAutoProxy
 public class SpringConfig {
     @Bean
-    public Library libraryBean(){
-        return new Library();
+    public AbstractLibrary libraryBean(){
+        return new UniLibrary();
     }
+
+    @Bean
+    public AbstractLibrary schoolBean(){ return new SchoolLibrary();}
 
 }

@@ -6,8 +6,14 @@ public class Test1 {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context =
                 new AnnotationConfigApplicationContext(SpringConfig.class);
-        Library library = context.getBean("libraryBean", Library.class);
-        library.getBook();
+        UniLibrary uniLibrary = context.getBean("libraryBean", UniLibrary.class);
+        uniLibrary.getBook();
+
+        SchoolLibrary schoolLib = context.getBean("schoolBean", SchoolLibrary.class);
+        schoolLib.getBook();
+        uniLibrary.getMagazine();
+        uniLibrary.returnBook();
+
         context.close();
 
     }
