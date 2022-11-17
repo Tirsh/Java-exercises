@@ -11,7 +11,8 @@
     <title>Title</title>
 </head>
 <body>
-    <h2>Dear employee, your name ${employeeName} - ${description}</h2>
+    <h2>Dear employee, your name ${employee.name} - ${employee.surname}</h2>
+    <h3>Salary ${employee.salary}</h3>
 
 </body>
 </html>
