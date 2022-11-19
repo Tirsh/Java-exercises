@@ -22,7 +22,24 @@
         Surname <form:input path="surname"/>
         <br><br>
         Salary <form:input path="salary"/>
+        <br><br>
+        Department <form:select path="department">
+<%--            <form:option value="Information Tehnology" label="IT"/>--%>
+<%--            <form:option value="Human Resourses" label="HR"/>--%>
+<%--            <form:option value="Sales" label="Sales"/>--%>
+        <form:options items="${employee.departments}"/>
+        <br><br>
+        </form:select>
+        <form:radiobuttons path="carBrand" items="${employee.carBrands}"/>
+        <br>
+        Foreign languages:
+<%--        EN <form:checkbox path="languages" value="English"/>--%>
+<%--        DE <form:checkbox path="languages" value="Deutch"/>--%>
+<%--        FR <form:checkbox path="languages" value="French"/>--%>
+            <form:checkboxes path="languages" items="${employee.languagesList}"/>
+        <br>
         <input type="submit" value="Ok"/>
+
     </form:form>
 
 

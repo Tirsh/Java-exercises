@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: valeriy
@@ -13,6 +14,14 @@
 <body>
     <h2>Dear employee, your name ${employee.name} - ${employee.surname}</h2>
     <h3>Salary ${employee.salary}</h3>
+    <h3>Department ${employee.department}</h3>
+    <h3>Car Model ${employee.carBrand}</h3>
+    <h3>Languages:</h3>
+    <ul>
+        <c:forEach var="lan" items="${employee.languages}">
+            <li>${lan}</li>
+        </c:forEach>
+    </ul>
 
 </body>
 </html>
