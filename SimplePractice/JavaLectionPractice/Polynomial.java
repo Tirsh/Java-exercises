@@ -1,4 +1,6 @@
-import java.util.Random;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.*;
 
 public class Polynomial {
     private int[] polinomElements;
@@ -27,6 +29,23 @@ public class Polynomial {
         this.rang = pol.length - 1;
         polinomElements = pol;
     }
+    public Polynomial(String fileName) throws FileNotFoundException {
+        FileReader file = new FileReader(fileName);
+        Scanner scanner = new Scanner(file);
+        String text = scanner.nextLine();
+        String findRang = text.replaceAll(" ", "")
+                        .replaceAll("\\d*x\\^*", "")
+                        .replaceAll("[+-]\\d=0", "");
+        this.rang = (int)Arrays.stream(findRang.split("[-+]"))
+                .map(Integer::parseInt).max(Comparator.comparingInt(a -> a)).get();
+        String[] pol = text.replaceAll(" ", "")
+                .replaceAll("x\\^*\\d*\\+*", "|")
+                .replaceAll("=0", "")
+                .split("\\|");
+        Collections.reverse(Arrays.asList(pol));
+        this.polinomElements = Arrays.stream(pol).map(Integer::parseInt).mapToInt(i->i).toArray();
+    }
+
 
     public int[] getPolinomAsArray() {
         return polinomElements;
@@ -49,7 +68,9 @@ public class Polynomial {
             }
         }
         return new Polynomial(first);
-
+    }
+    public void saveToFile(String fileName){
+        //ToDO
     }
 
     @Override
