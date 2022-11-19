@@ -1,5 +1,4 @@
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
 import java.util.*;
 
 public class Polynomial {
@@ -29,10 +28,11 @@ public class Polynomial {
         this.rang = pol.length - 1;
         polinomElements = pol;
     }
-    public Polynomial(String fileName) throws FileNotFoundException {
+    public Polynomial(String fileName) throws IOException {
         FileReader file = new FileReader(fileName);
         Scanner scanner = new Scanner(file);
         String text = scanner.nextLine();
+        file.close();
         String findRang = text.replaceAll(" ", "")
                         .replaceAll("\\d*x\\^*", "")
                         .replaceAll("[+-]\\d=0", "");
@@ -69,8 +69,11 @@ public class Polynomial {
         }
         return new Polynomial(first);
     }
-    public void saveToFile(String fileName){
-        //ToDO
+    public void saveToFile(String fileName) throws IOException{
+        File file = new File(fileName);
+        PrintWriter pw = new PrintWriter(file);
+        pw.println(this.toString());
+        pw.close();
     }
 
     @Override
