@@ -7,13 +7,13 @@ public class Task1 {
         Scanner scanner;
         do {
             scanner = new Scanner(System.in);
-            System.out.println("Введите целое чисто N:");
+            System.out.println("Input integer number N:");
         }
         while (!scanner.hasNextInt());
         int num = scanner.nextInt();
         scanner.close();
-        System.out.printf("Триугольное число N = %d\n",triangularNum(num));
-        System.out.printf("Факториал числа N = %d\n", fact(num));
+        System.out.printf("Triangular number of N = %d\n",triangularNum(num));
+        System.out.printf("Factorial of N = %d\n", fact(num));
     }
     public static int triangularNum(int n){
         if (n == 0) return 0;

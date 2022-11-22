@@ -3,7 +3,8 @@ package homework1;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Task2 {
+public class
+Task2 {
     public static void main(String[] args) {
         List<Integer> numbers = new ArrayList<>();
         int N = 1000;
