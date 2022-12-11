@@ -28,4 +28,5 @@ public class MainApp {
         long timeNs = (finishTime - startTime) / MEASURE_COUNT;
         System.out.println("Time spent: " + timeNs + "ns (" + timeNs / 1_000_000 + "ms)");
     }
+
 }
